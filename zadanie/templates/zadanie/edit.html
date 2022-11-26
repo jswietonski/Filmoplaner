@@ -1,0 +1,86 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="POST" class="post-form" action="/zadanie/update/{{zadanie.id}}">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Aktalizuj dane</h3>
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">ID:</label>
+    <div class="col-sm-4">
+        <input type="text" name="id" id="id_eid" required maxlength="20" value="{{ zadanie.id}}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Tytuł:</label>
+    <div class="col-sm-4">
+        <input type="text" name="tytul" id="id_tytul" required maxlength="255" value="{{ zadanie.tytul}}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Opis:</label>
+    <div class="col-sm-4">
+        <input type="text" name="opis" id="id_opis" required maxlength="255" value="{{ zadanie.opis }}"/>
+    </div>
+  </div>
+
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Termin:</label>
+    <div class="col-sm-4">
+        <input type="text" name="termin" id="id_termin" required maxlength="20" value="{{ zadanie.termin }}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Dotyczy filmu:</label>
+    <div class="col-sm-4">
+    <select id="id_id_film" name="id_film">
+        {% for film in filmy %}
+        <option value="{{ film.nazwa }}">{{ film.nazwa }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Dotyczy menadzera:</label>
+    <div class="col-sm-4">
+    <select id="id_id_menadzer" name="id_menadzer">
+        {% for menadzer in menadzerzy %}
+        <option value="{{ menadzer.id }}">{{ menadzer.imie }}  {{ menadzer.nazwisko }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Dotyczy pracownika:</label>
+    <div class="col-sm-4">
+    <select id="id_id_pracownik" name="id_pracownik">
+        {% for pracownik in pracownicy %}
+        <option value="{{ pracownik.id }}">{{ pracownik.imie }} {{ pracownik.nazwisko }} </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-success">Aktualizuj</button>
+    </div>
+  </div>
+    </div>
+</form>
+{% endblock %}
+</body>
+</html>

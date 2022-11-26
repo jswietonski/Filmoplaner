@@ -1,0 +1,39 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th> ID Kosztorysu</th>
+        <th>Kosztorys dotyczy filmu </th>
+        <th>Koszt produkcji</th>
+        <th>Koszt postprodukcji</th>
+        <th>Koszt marketingu</th>
+        <th>Koszt całkowity</th>
+        <th>Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for kosztorys in kosztorysy %}
+    <tr>
+        <td>{{ kosztorys.id }}</td>
+        <td>{{ kosztorys.id_filmm }}</td>
+        <td>{{ kosztorys.koszt_produkcji }}</td>
+        <td>{{ kosztorys.koszt_postprodukcji }}</td>
+        <td>{{ kosztorys.koszt_marketingu }}</td>
+        <td>{{ kosztorys.koszt_calkowity }}</td>
+        <td>
+            <a href="/kosztorys/edit/{{ kosztorys.id}}"><span class="glyphicon glyphicon-pencil" >Edytuj</span></a>
+            <a href="/kosztorys/delete/{{ kosztorys.id }}">Usuń</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/kosztorys/emp" class="btn btn-primary">Dodaj nowy kosztorys</a></center>
+{% endblock %}
+</body>
+</html>

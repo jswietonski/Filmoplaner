@@ -1,0 +1,62 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="POST" class="post-form" action="/studio/update/{{studio.id}}">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Aktalizuj dane</h3>
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">ID:</label>
+    <div class="col-sm-4">
+        <input type="text" name="eid" id="id_eid" required maxlength="20" value="{{ studio.id}}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Gatunek:</label>
+    <div class="col-sm-4">
+        <input type="text" name="nazwa" id="id_nazwa" required maxlength="20" value="{{ studio.nazwa}}"/>
+    </div>
+  </div>
+
+            <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Gatunek:</label>
+    <div class="col-sm-4">
+        <input type="text" name="lat" id="id_lat" required maxlength="20" value="{{ studio.lat}}"/>
+    </div>
+  </div>
+
+            <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Gatunek:</label>
+    <div class="col-sm-4">
+        <input type="text" name="lon" id="id_lon" required maxlength="20" value="{{ studio.lon}}"/>
+    </div>
+  </div>
+
+            <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Gatunek:</label>
+    <div class="col-sm-4">
+        <input type="text" name="powierzchnia" id="id_powierzchnia" required maxlength="20" value="{{ studio.powierzchnia}}"/>
+    </div>
+  </div>
+
+
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-success">Aktualizuj</button>
+    </div>
+  </div>
+    </div>
+</form>
+{% endblock %}
+</body>
+</html>

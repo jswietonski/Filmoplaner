@@ -1,0 +1,58 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="POST" class="post-form" action="/studio/emp">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Podaj szczegóły</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Nazwa:</label>
+    <div class="col-sm-4">
+      {{ form.nazwa }}
+    </div>
+  </div>
+
+            <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Powierzchnia:</label>
+    <div class="col-sm-4">
+      {{ form.powierzchnia }}
+    </div>
+  </div>
+
+            <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Latitiude:</label>
+    <div class="col-sm-4">
+      {{ form.lat }}
+    </div>
+  </div>
+
+            <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Longtitiude:</label>
+    <div class="col-sm-4">
+      {{ form.lon }}
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+    </div>
+</form>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="POST" class="post-form" action="/rola/emp">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Podaj szczegóły</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Rola:</label>
+    <div class="col-sm-4">
+      {{ form.tytul }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Typ roli:</label>
+    <div class="col-sm-4">
+      {{ form.typ_roli }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Dotyczy filmu:</label>
+    <div class="col-sm-4">
+      {{ form.id_film }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Aktor:</label>
+    <div class="col-sm-4">
+      {{ form.id_aktor}}
+    </div>
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+    </div>
+        </div>
+</form>
+    {{ form.errors }}
+    {{ form.non_field_errors }}
+{% endblock %}
+</body>
+</html>

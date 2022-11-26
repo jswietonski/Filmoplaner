@@ -1,0 +1,74 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="POST" class="post-form" action="/film/update/{{film.id}}">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Aktalizuj dane</h3>
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">ID:</label>
+    <div class="col-sm-4">
+        <input type="text" name="eid" id="id_eid" required maxlength="20" value="{{ film.id}}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Nazwa filmu:</label>
+    <div class="col-sm-4">
+        <input type="text" name="nazwa" id="id_imie" required maxlength="20" value="{{ film.nazwa}}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Budżet:</label>
+    <div class="col-sm-4">
+        <input type="text" name="budzet" id="id_nazwisko" required maxlength="20" value="{{ film.budzet }}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">ID gatunku:</label>
+    <div class="col-sm-4">
+        <!--
+        <input type="text" name="id_gatunek" id="id_data_zatrudnienia" required maxlength="20" value="{{ film.id_gatunek }}"/>
+        -->
+    <select id="id_data_zatrudnienia" name="id_gatunek">
+        {% for gatunek in gatunki %}
+        <option value="{{ gatunek.gatunekk }}">{{ gatunek.gatunekk }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Ograniczenie wiekowe:</label>
+    <div class="col-sm-4">
+        <input type="text" name="ograniczenie_wiekowe" id="id_wynagrodzenie" required maxlength="20" value="{{ film.ograniczenie_wiekowe }}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Data premiery:</label>
+    <div class="col-sm-4">
+        <input type="text" name="data_premiery" id="id_data_urodzenia" required maxlength="20" value="{{ film.data_premiery }}"/>
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-success">Aktualizuj</button>
+    </div>
+  </div>
+    </div>
+</form>
+{% endblock %}
+</body>
+</html>

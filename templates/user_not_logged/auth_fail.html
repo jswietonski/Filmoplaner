@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="alert alert-danger" role="alert">
+  Aby mieć dostęp do tej strony musisz się zalogować
+    <a href="/accounts/login">Zaloguj się</a>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+</head>
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+
+
+
+
+
+    <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Witaj w filmoplanerze!</h1>
+          <p>Zobacz swoje zadania, najbliższe spotkania oraz postęp prac nad produkcją filmów</p>
+            <p>Jest godzina: {% now " H:i" %}</p>
+        </div>
+
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Filmy</h2>
+            <p>Filmy w których produkcji uczestniczysz:</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Zobacz szczegóły »</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Spotkania</h2>
+            <p>Najbliższe spotkania:</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Zobacz szczegóły »</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Zadania</h2>
+            <p>Najbliżej terminu:</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Zobacz szczegóły »</a></p>
+          </div>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+
+
+
+
+{% endblock %}
+</body>
+</html>

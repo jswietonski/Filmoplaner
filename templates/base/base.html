@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmoplaner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+{% block nav %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Filmoplaner</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/homepage">Start <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/show">Pracownicy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/film/show">Filmy</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/kosztorys/show">Kosztorysy</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/aktor/show">Aktorzy</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/zadanie/show">Zadania</a>
+      </li>
+           <li class="nav-item">
+        <a class="nav-link" href="/spotkanie/show">Spotkania</a>
+      </li>
+           <li class="nav-item">
+        <a class="nav-link" href="/menadzer/show">Menadzerowie</a>
+      </li>
+                   <li class="nav-item">
+        <a class="nav-link" href="/gatunekfilmu/show">Gatunki</a>
+      </li>
+                    <li class="nav-item">
+        <a class="nav-link" href="/studio/show">Studia</a>
+      </li>
+                            <li class="nav-item">
+        <a class="nav-link" href="/rola/show">Role</a>
+      </li>
+           <li class="nav-item ">
+        <a class="nav-link " href="{% url 'logout' %}">Wyloguj się</a>
+      </li>
+    </ul>
+          </div>
+  </div>
+</nav>
+{% endblock nav %}
+{% block content %}
+
+{% endblock %}
+ {% block footer-scripts %}
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Start</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Zarządzanie</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">O nas</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 Filmoplaner, PZ</p>
+  </footer>
+ {% endblock footer-scripts %}
+</body>
+</html>

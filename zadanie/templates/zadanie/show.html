@@ -1,0 +1,41 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th> ID zadania</th>
+        <th>Tytuł </th>
+        <th>Opis</th>
+        <th>Termin</th>
+        <th>Dotyczy pracownika</th>
+        <th>Dotyczy menadzera</th>
+        <th>Dotyczy filmu</th>
+        <th>Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for zadanie in zadania %}
+    <tr>
+        <td>{{ zadanie.id }}</td>
+        <td>{{ zadanie.tytul }}</td>
+        <td>{{ zadanie.opis }}</td>
+        <td>{{ zadanie.termin }}</td>
+        <td>{{ zadanie.id_pracownik }}</td>
+        <td>{{ zadanie.id_menadzer }}</td>
+        <td>{{ zadanie.id_film }}</td>
+        <td>
+            <a href="/zadanie/edit/{{ zadanie.id}}"><span class="glyphicon glyphicon-pencil" >Edytuj</span></a>
+            <a href="/zadanie/delete/{{ zadanie.id }}">Usuń</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/zadanie/emp" class="btn btn-primary">Dodaj nowe zadanie</a></center>
+{% endblock %}
+</body>
+</html>

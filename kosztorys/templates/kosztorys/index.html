@@ -1,0 +1,58 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="POST" class="post-form" action="/kosztorys/emp">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Podaj szczegóły</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Kosztorys dla filmu:</label>
+    <div class="col-sm-4">
+      {{ form.id_filmm }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Koszt produkcji:</label>
+    <div class="col-sm-4">
+      {{ form.koszt_produkcji }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Koszt postprodukcji:</label>
+    <div class="col-sm-4">
+      {{ form.koszt_postprodukcji}}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Koszt marketingu:</label>
+    <div class="col-sm-4">
+      {{ form.koszt_marketingu }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Koszt całkowity:</label>
+    <div class="col-sm-4">
+      {{ form.koszt_calkowity}}
+    </div>
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+    </div>
+        </div>
+</form>
+    {{ form.errors }}
+    {{ form.non_field_errors }}
+{% endblock %}
+</body>
+</html>

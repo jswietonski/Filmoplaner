@@ -1,0 +1,65 @@
+
+<body>
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="POST" class="post-form" action="/zadanie/emp">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Podaj szczegóły</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Tytuł:</label>
+    <div class="col-sm-4">
+      {{ form.tytul }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Opis:</label>
+    <div class="col-sm-4">
+      {{ form.opis }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Termin:</label>
+    <div class="col-sm-4">
+      {{ form.termin}}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Dotyczy pracownika:</label>
+    <div class="col-sm-4">
+      {{ form.id_pracownik }}
+    </div>
+  </div>
+        <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Dotyczy menadzera:</label>
+    <div class="col-sm-4">
+      {{ form.id_menadzer}}
+    </div>
+        </div>
+
+            <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Dotyczy filmu:</label>
+    <div class="col-sm-4">
+      {{ form.id_film}}
+    </div>
+    </div>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+    </div>
+
+</form>
+    {{ form.errors }}
+    {{ form.non_field_errors }}
+{% endblock %}
+</body>
+</html>
