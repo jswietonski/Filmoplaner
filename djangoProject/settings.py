@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#k*2#(xozn_qdm#upvt&g_q4(arxf-=0)hn+&x=7=k34gm!jrh
 DEBUG = True
 
 ALLOWED_HOSTS = ['filmoplanerr.azurewebsites.net']
-CSRF_TRUSTED_ORIGINS = ['https://filmoplanerr.azurewebsites.net/']
+CSRF_TRUSTED_ORIGINS = ['https://filmoplanerr.azurewebsites.net']
 
 STATIC_URL = '/static/'
 # Application definition
