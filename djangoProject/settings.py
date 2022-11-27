@@ -91,9 +91,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "pz-test",
-        "USER": "roxor0",
-        "PASSWORD": "12345678",
-        "HOST": "localhost",
+        "USER": "user",
+        "PASSWORD": "password",
+        "HOST": "db",
         "PORT": "3306"
     }
 }
