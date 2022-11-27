@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    image: mysql:8
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_DATABASE='pz-test'
+      - MYSQL_USER='roxor0'
+      - MYSQL_PASSWORD='12345678'
+      - MYSQL_ROOT_PASSWORD='12345678'
+      - MYSQL_HOST=''
+    volumes:
+      - F:\python\djangoProject\mysqlqld:/var/run/mysqld
+      - ./db:/var/lib/mysql
+  web:
+    image: roxor0/filmoplaner
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - /tmp/app/mysqld:/run/mysqld
+    depends_on:
+      - db
