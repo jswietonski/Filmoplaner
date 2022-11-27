@@ -92,8 +92,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "pz-test",
         "USER": "user",
-        "PASSWORD": "password",
-        "HOST": "db",
+        "PASSWORD": "Filmoplaner1!",
+        "HOST": "pz-test.mysql.database.azure.com",
         "PORT": "3306"
     }
 }
