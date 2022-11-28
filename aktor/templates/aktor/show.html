@@ -2,6 +2,8 @@
 <body>
 {% extends 'base/base.html' %}
 {% block content %}
+    {% load has_group %}
+    {% if request.user|has_group:"Menedzer" %}
 <table class="table table-striped table-bordered table-sm">
     <thead class="thead-dark">
     <tr>
@@ -28,8 +30,10 @@
         <td>{{ aktor.nrtel }}</td>
         <td>{{ aktor.eemail }}</td>
         <td>
+            {% if request.user|has_group:"Menedzer" %}
             <a href="/aktor/edit/{{ aktor.id}}"><span class="glyphicon glyphicon-pencil" >Edytuj</span></a>
             <a href="/aktor/delete/{{ aktor.id }}">Usuń</a>
+            {% else %} Brak dostepnych akcji {% endif %}
         </td>
     </tr>
 {% endfor %}
@@ -37,7 +41,11 @@
 </table>
 <br>
 <br>
+    {% if request.user|has_group:"Menedzer" %}
 <center><a href="/aktor/emp" class="btn btn-primary">Dodaj nowego aktora</a></center>
+    {% else %} Brak dostepnych akcji {% endif %}
+    {% else %} Odmowa uprawnień <br>
+ Jeśli powinieneś mieć dostęp skontaktuj się z administratorem {% endif %}
 {% endblock %}
 </body>
 </html>

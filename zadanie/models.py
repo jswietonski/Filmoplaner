@@ -11,7 +11,7 @@ from django.db import models
 
 
 class Zadanie(models.Model):
-    '''Definicja tabeli film w bazie danych'''
+    '''Definicja tabeli zadanie w bazie danych'''
     id_pracownik = models.ForeignKey(Pracownik, null=True, on_delete=models.DO_NOTHING, related_name='id_pracownika'
                                    )
     id_menadzer = models.ForeignKey(Menadzer, null=True, on_delete=models.DO_NOTHING, related_name='id_menadzera'

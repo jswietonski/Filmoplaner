@@ -10,7 +10,7 @@ from film.models import Film
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowego kosztorysu do bazy'''
     if request.method == "POST":
         form = KosztorysForm(request.POST)
         #film = Film
@@ -32,18 +32,18 @@ def emp(request):
     return render(request,'kosztorys/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie kosztorysów'''
     kosztorysy = Kosztorys.objects.all()
     return render(request,"kosztorys/show.html",{'kosztorysy':kosztorysy})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego kosztorysu do edycji'''
     filmy = Film.objects.all()
     kosztorys = Kosztorys.objects.get(id=id)
     return render(request,'kosztorys/edit.html', {'kosztorys':kosztorys , 'filmy':filmy})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanego kosztorysu '''
     kosztorys = Kosztorys.objects.get(id=id)
     form = KosztorysForm(request.POST, instance = kosztorys)
     if form.is_valid():
@@ -52,7 +52,7 @@ def update(request, id):
     return render(request, 'kosztorys/edit.html', {'kosztorys': kosztorys})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id kosztorysu i usniecie go z bazy'''
     kosztorys = Kosztorys.objects.get(id=id)
     kosztorys.delete()
     return redirect("/kosztorys/show")

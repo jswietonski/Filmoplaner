@@ -1,7 +1,12 @@
 
+
 <body>
 {% extends 'base/base.html' %}
+{% load has_group %}
+
+
 {% block content %}
+{% if request.user|has_group:"Menedzer,Aktor" %}
 <table class="table table-striped table-bordered table-sm">
     <thead class="thead-dark">
     <tr>
@@ -22,8 +27,12 @@
         <td>{{ rola.id_film }}</td>
         <td>{{ rola.id_aktor }}</td>
         <td>
+            {% if request.user|has_group:"Menedzer" %}
             <a href="/rola/edit/{{ rola.id}}"><span class="glyphicon glyphicon-pencil" >Edytuj</span></a>
             <a href="/rola/delete/{{ rola.id }}">Usuń</a>
+                {% else %}
+                Brak dostepnych akcji
+            {% endif %}
         </td>
     </tr>
 {% endfor %}
@@ -31,7 +40,14 @@
 </table>
 <br>
 <br>
+    {% if request.user|has_group:"Menedzer" %}
 <center><a href="/rola/emp" class="btn btn-primary">Dodaj nową rolę</a></center>
+    {% else %}
+                Brak dostepnych akcji
+            {% endif %}
+{% else %} Odmowa uprawnień <br>
+ Jeśli powinieneś mieć dostęp skontaktuj się z administratorem {% endif %}
+
 {% endblock %}
 </body>
 </html>

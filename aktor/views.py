@@ -9,7 +9,7 @@ from aktor.models import Aktor
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowego aktora do bazy'''
     if request.method == "POST":
         form = AktorForm(request.POST)
         if form.is_valid():
@@ -23,17 +23,17 @@ def emp(request):
     return render(request,'aktor/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie aktorów'''
     aktorzy = Aktor.objects.all()
     return render(request,"aktor/show.html",{'aktorzy':aktorzy})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego aktora do edycji'''
     aktor = Aktor.objects.get(id=id)
     return render(request,'aktor/edit.html', {'aktor':aktor})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanego aktora '''
     aktor = Aktor.objects.get(id=id)
     form = AktorForm(request.POST, instance = aktor)
     if form.is_valid():
@@ -42,7 +42,7 @@ def update(request, id):
     return render(request, 'edit.html', {'aktor': aktor})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id aktora i usniecie go z bazy'''
     aktor = Aktor.objects.get(id=id)
     aktor.delete()
     return redirect("/aktor/show")

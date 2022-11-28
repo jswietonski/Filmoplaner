@@ -10,7 +10,7 @@ from gatunek_filmu.models import GatunekFilmu
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowego filmu do bazy'''
     if request.method == "POST":
         form = FilmForm(request.POST)
         #film = Film
@@ -32,18 +32,18 @@ def emp(request):
     return render(request,'film/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie filmów'''
     filmy = Film.objects.all()
     return render(request,"film/show.html",{'filmy':filmy})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego filmu do edycji'''
     gatunki = GatunekFilmu.objects.all()
     film = Film.objects.get(id=id)
     return render(request,'film/edit.html', {'film':film , 'gatunki':gatunki})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanego filmu '''
     film = Film.objects.get(id=id)
     form = FilmForm(request.POST, instance = film)
     if form.is_valid():
@@ -52,7 +52,7 @@ def update(request, id):
     return render(request, 'film/edit.html', {'film': film})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id filmu i usniecie go z bazy'''
     film = Film.objects.get(id=id)
     film.delete()
     return redirect("/film/show")

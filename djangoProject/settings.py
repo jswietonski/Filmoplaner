@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#k*2#(xozn_qdm#upvt&g_q4(arxf-=0)hn+&x=7=k34gm!jrh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['filmoplanerr.azurewebsites.net']
+ALLOWED_HOSTS = ['filmoplanerr.azurewebsites.net', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://filmoplanerr.azurewebsites.net']
 
 STATIC_URL = '/static/'
@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'spotkanie',
     'kosztorys',
     'zadanie',
-    'rola'
+    'rola',
+    'template_tags',
 ]
 
 MIDDLEWARE = [

@@ -11,7 +11,7 @@ from aktor.models import Aktor
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowej roli do bazy'''
     if request.method == "POST":
         form = RolaForm(request.POST)
         #film = Film
@@ -27,19 +27,19 @@ def emp(request):
     return render(request,'rola/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie rol'''
     role = Rola.objects.all()
     return render(request, "rola/show.html",{'role':role})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego rol do edycji'''
     aktorzy = Aktor.objects.all()
     filmy = Film.objects.all()
     rola = Rola.objects.get(id=id)
     return render(request, 'rola/edit.html', {'rola':rola , 'aktorzy':aktorzy, 'filmy':filmy})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanej roli '''
     rola = Rola.objects.get(id=id)
     form = RolaForm(request.POST, instance = rola)
     if form.is_valid():
@@ -48,7 +48,7 @@ def update(request, id):
     return render(request, 'rola/edit.html', {'rola': rola})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id roli i usniecie go z bazy'''
     rola = Rola.objects.get(id=id)
     rola.delete()
     return redirect("/rola/show")

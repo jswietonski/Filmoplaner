@@ -4,7 +4,7 @@ from django.db import models
 
 
 class GatunekFilmu(models.Model):
-    '''Definicja tabeli pracownik w bazie danych'''
+    '''Definicja tabeli gatunku w bazie danych'''
     gatunekk = models.CharField(max_length=40, default=None, blank=True, null=True, unique=True)
 
     class Meta:

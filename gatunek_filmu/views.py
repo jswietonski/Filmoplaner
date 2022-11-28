@@ -12,7 +12,7 @@ from gatunek_filmu.models import GatunekFilmu
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowego gatunku do bazy'''
     if request.method == "POST":
         form = GatunekFilmuForm(request.POST)
         if form.is_valid():
@@ -26,17 +26,17 @@ def emp(request):
     return render(request,'gatunek_filmu/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie gatunków'''
     gatunki = GatunekFilmu.objects.all()
     return render(request,"gatunek_filmu/show.html",{'gatunki':gatunki})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego gatunku do edycji'''
     gatunek = GatunekFilmu.objects.get(id=id)
     return render(request,'gatunek_filmu/edit.html', {'gatunek':gatunek})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanego gatunku '''
     gatunek = GatunekFilmu.objects.get(id=id)
     form = GatunekFilmuForm(request.POST, instance = gatunek)
     if form.is_valid():
@@ -45,7 +45,7 @@ def update(request, id):
     return render(request, 'gatunek_filmu/edit.html', {'gatunek':gatunek})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id gatunku i usniecie go z bazy'''
     gatunek = GatunekFilmu.objects.get(id=id)
     gatunek.delete()
     return redirect("/gatunekfilmu/show")

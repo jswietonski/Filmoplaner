@@ -12,7 +12,7 @@ from film.models import Film
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowego zadania do bazy'''
     if request.method == "POST":
         form = ZadanieForm(request.POST)
         #film = Film
@@ -34,12 +34,12 @@ def emp(request):
     return render(request,'zadanie/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie zadani'''
     zadania = Zadanie.objects.all()
     return render(request,"zadanie/show.html",{'zadania':zadania})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego zadania do edycji'''
     filmy = Film.objects.all()
     pracownicy = Pracownik.objects.all()
     menadzerzy = Menadzer.objects.all()
@@ -47,7 +47,7 @@ def edit(request, id):
     return render(request,'zadanie/edit.html', {'zadanie':zadanie, 'filmy':filmy, 'pracownicy':pracownicy, 'menadzerzy':menadzerzy})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanego zadania '''
     zadanie = Zadanie.objects.get(id=id)
     form = ZadanieForm(request.POST, instance = zadanie)
     if form.is_valid():
@@ -56,7 +56,7 @@ def update(request, id):
     return render(request, 'zadanie/edit.html', {'zadanie': zadanie})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id zadania i usniecie go z bazy'''
     zadanie = Zadanie.objects.get(id=id)
     zadanie.delete()
     return redirect("/zadanie/show")

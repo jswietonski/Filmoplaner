@@ -12,7 +12,7 @@ from studio.models import Studio
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowego studia do bazy'''
     if request.method == "POST":
         form = StudioForm(request.POST)
         if form.is_valid():
@@ -26,17 +26,17 @@ def emp(request):
     return render(request,'studio/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie studiaw'''
     studia = Studio.objects.all()
     return render(request,"studio/show.html",{'studia':studia})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego studia do edycji'''
     studio = Studio.objects.get(id=id)
     return render(request,'studio/edit.html', {'studio':studio})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanego studia '''
     studio = Studio.objects.get(id=id)
     form = StudioForm(request.POST, instance = studio)
     if form.is_valid():
@@ -45,7 +45,7 @@ def update(request, id):
     return render(request, 'studio/edit.html', {'studio':studio})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id studia i usniecie go z bazy'''
     studio = Studio.objects.get(id=id)
     studio.delete()
     return redirect("/studio/show")

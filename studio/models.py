@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Studio(models.Model):
-    '''Definicja tabeli pracownik w bazie danych'''
+    '''Definicja tabeli studio w bazie danych'''
     nazwa = models.CharField(max_length=40, default=None, blank=True, null=True, unique=True)
     lat = models.FloatField( default=None, blank=True, null=True)
     lon = models.FloatField( default=None, blank=True, null=True)

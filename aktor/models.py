@@ -8,7 +8,7 @@ from django.db import models
 
 
 class Aktor(models.Model):
-    '''Definicja tabeli pracownik w bazie danych'''
+    '''Definicja tabeli aktor w bazie danych'''
     imie = models.CharField(max_length=20, default=None, blank=True, null=True)
     nazwisko = models.CharField(max_length=100, default=None, blank=True, null=True)
     nrtel = models.CharField(max_length=15, default=None, blank=True, null=True)

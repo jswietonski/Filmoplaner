@@ -11,7 +11,7 @@ from studio.models import Studio
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowego spotkania do bazy'''
     if request.method == "POST":
         form = SpotkanieForm(request.POST)
         #film = Film
@@ -33,19 +33,19 @@ def emp(request):
     return render(request,'spotkanie/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie spotkani'''
     spotkania = Spotkanie.objects.all()
     return render(request, "spotkanie/show.html",{'spotkania':spotkania})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego spotkania do edycji'''
     studia = Studio.objects.all()
     filmy = Film.objects.all()
     spotkanie = Spotkanie.objects.get(id=id)
     return render(request, 'spotkanie/edit.html', {'spotkanie':spotkanie , 'studia':studia, 'filmy':filmy})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanego spotkania '''
     spotkanie = Spotkanie.objects.get(id=id)
     form = SpotkanieForm(request.POST, instance = spotkanie)
     if form.is_valid():
@@ -54,7 +54,7 @@ def update(request, id):
     return render(request, 'spotkanie/edit.html', {'spotkanie': spotkanie})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id spotkania i usniecie go z bazy'''
     spotkanie = Spotkanie.objects.get(id=id)
     spotkanie.delete()
     return redirect("/spotkanie/show")

@@ -9,7 +9,7 @@ from menadzer.models import Menadzer
 # Create your views here.
 
 def emp(request):
-    '''Dodawanie nowego pracownika do bazy'''
+    '''Dodawanie nowego menadzera do bazy'''
     if request.method == "POST":
         form = MenadzerForm(request.POST)
         if form.is_valid():
@@ -23,17 +23,17 @@ def emp(request):
     return render(request,'menadzer/index.html',{'form':form})
 
 def show(request):
-    '''Wyswietlanie pracownikow'''
+    '''Wyswietlanie menadzeraw'''
     menadzerzy = Menadzer.objects.all()
     return render(request,"menadzer/show.html",{'menadzerzy':menadzerzy})
 
 def edit(request, id):
-    '''Pozyskanie danych  istniejacego pracownika do edycji'''
+    '''Pozyskanie danych  istniejacego menadzera do edycji'''
     menadzer = Menadzer.objects.get(id=id)
     return render(request,'menadzer/edit.html', {'menadzer':menadzer})
 
 def update(request, id):
-    '''Przeslanie nowych danych edytowanego pracownika '''
+    '''Przeslanie nowych danych edytowanego menadzera '''
     menadzer = Menadzer.objects.get(id=id)
     form = MenadzerForm(request.POST, instance = menadzer)
     if form.is_valid():
@@ -42,7 +42,7 @@ def update(request, id):
     return render(request, 'edit.html', {'menadzer': menadzer})
 
 def destroy(request, id):
-    '''Przekazanie id pracownika i usniecie go z bazy'''
+    '''Przekazanie id menadzera i usniecie go z bazy'''
     menadzer = Menadzer.objects.get(id=id)
     menadzer.delete()
     return redirect("/menadzer/show")

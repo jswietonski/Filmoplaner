@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -14,6 +15,7 @@ class Pracownik(models.Model):
     data_urodzenia = models.CharField(max_length=30, default=None, blank=True, null=True)
     econtact = models.CharField(max_length=15, default=None, blank=True, null=True)
     eemail = models.EmailField(default=None)
+    #userr = models.ForeignKey(User, null=True, on_delete=models.DO_NOTHING, related_name='id_usera', to_field='first_name')
 
     class Meta:
         db_table = "pracownik"
