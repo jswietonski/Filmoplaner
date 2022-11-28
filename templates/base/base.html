@@ -8,7 +8,7 @@
 </head>
 <body>
 {% block nav %}
-
+{% load has_group %}
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Filmoplaner</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,39 +19,62 @@
       <li class="nav-item active">
         <a class="nav-link" href="/homepage">Start <span class="sr-only">(current)</span></a>
       </li>
+{% if request.user|has_group:"Menedzer,Pracownik" %}
       <li class="nav-item">
         <a class="nav-link" href="/show">Pracownicy</a>
       </li>
+{% endif %}
+        {% if request.user|has_group:"Menedzer,Pracownik,Aktor" %}
       <li class="nav-item">
         <a class="nav-link" href="/film/show">Filmy</a>
       </li>
+{% endif %}
+    {% if request.user|has_group:"Menedzer" %}
         <li class="nav-item">
         <a class="nav-link" href="/kosztorys/show">Kosztorysy</a>
       </li>
+    {% endif %}
+    {% if request.user|has_group:"Menedzer" %}
         <li class="nav-item">
         <a class="nav-link" href="/aktor/show">Aktorzy</a>
       </li>
+    {% endif %}
+    {% if request.user|has_group:"Menedzer,Pracownik" %}
         <li class="nav-item">
         <a class="nav-link" href="/zadanie/show">Zadania</a>
       </li>
+{% endif %}
+{% if request.user|has_group:"Menedzer,Pracownik,Aktor" %}
            <li class="nav-item">
         <a class="nav-link" href="/spotkanie/show">Spotkania</a>
       </li>
+{% endif %}
+{% if request.user|has_group:"Menedzer,Pracownik,Aktor" %}
            <li class="nav-item">
         <a class="nav-link" href="/menadzer/show">Menadzerowie</a>
       </li>
+{% endif %}
+    {% if request.user|has_group:"Menedzer" %}
                    <li class="nav-item">
         <a class="nav-link" href="/gatunekfilmu/show">Gatunki</a>
       </li>
+{% endif %}
+{% if request.user|has_group:"Menedzer,Pracownik,Aktor" %}
                     <li class="nav-item">
         <a class="nav-link" href="/studio/show">Studia</a>
       </li>
+{% endif %}
+{% if request.user|has_group:"Menedzer,Aktor" %}
                             <li class="nav-item">
         <a class="nav-link" href="/rola/show">Role</a>
       </li>
+{% endif %}
+
            <li class="nav-item ">
         <a class="nav-link " href="{% url 'logout' %}">Wyloguj się</a>
       </li>
+
+
     </ul>
           </div>
   </div>
