@@ -6,3 +6,4 @@ class StudioForm(forms.ModelForm):
     class Meta:
         model = Studio
         fields = "__all__"
+

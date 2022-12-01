@@ -69,11 +69,11 @@
         <a class="nav-link" href="/rola/show">Role</a>
       </li>
 {% endif %}
-
+{% if request.user.is_authenticated %}
            <li class="nav-item ">
         <a class="nav-link " href="{% url 'logout' %}">Wyloguj się</a>
       </li>
-
+{% endif %}
 
     </ul>
           </div>

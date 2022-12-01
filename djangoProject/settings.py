@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mapbox_location_field',
     'pracownik',
     'accounts',
     'homepage',
@@ -100,6 +101,8 @@ DATABASES = {
     }
 }
 
+GOOGLE_MAPS_API_KEY = "AIzaSyCFLJTOGvt6pX6EyroE5CUFdeLe5V8-H9c"
+MAPBOX_KEY = 'pk.eyJ1Ijoicm94b3IwIiwiYSI6ImNsYjU4ODQ4czAwZW0zdm9hajZwbmVreWcifQ.bD6AhY197dUMkj5NTwlwFw'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
